@@ -78,8 +78,12 @@ WSGI_APPLICATION = 'blogengine.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'molchanov_db',
+        'USER': 'nasyikat',
+        'PASSWORD': '1',
+        'HOST': 'localhost',
+        'PORT': 5432
     }
 }
 
