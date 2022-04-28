@@ -1,7 +1,8 @@
 from .models import Post, Tag
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic import View
-from .utils import ObjectDetailMixin
+from .utils import ObjectDetailMixin, ObjectCreateMixin
+from .forms import TagForm, PostForm
 # Create your views here.
 
 
@@ -18,6 +19,16 @@ class PostDetail(ObjectDetailMixin, View):
 class TagDetail(ObjectDetailMixin, View):
     model = Tag
     template = 'blog/tag_detail.html'
+
+
+class PostCreate(ObjectCreateMixin, View):
+    form_model = PostForm
+    template = 'blog/post_create.html'
+
+
+class TagCreate(ObjectCreateMixin, View):
+    form_model = TagForm
+    template = 'blog/tag_create.html'
 
 
 def tags_list(request):
