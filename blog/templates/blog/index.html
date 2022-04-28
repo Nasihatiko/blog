@@ -1,6 +1,5 @@
 {% extends 'blog/base_blog.html' %}
 
-
 {% block title %}
     Posts list
 {% endblock title %}
@@ -8,18 +7,7 @@
 {% block content %}
     <h1 class="mb-5">Posts:</h1>
     {% for post in posts %}
-        <div class="card">
-  <div class="card-header">
-      {{ post.date_pub }}
-  </div>
-  <div class="card-body mb-4">
-    <h5 class="card-title">{{ post.title }}</h5>
-    <p class="card-text">{{ post.body|truncatewords:15 }}</p>
-    <a href="{{ post.get_absolute_url }}" class="btn btn-light">Read</a>
-  </div>
-</div>
-        <p>
-            {{ post.title }}
+         {% include 'blog/includes/post_card_template.html'%}
         </p>
     {% endfor %}
 {% endblock content %}
